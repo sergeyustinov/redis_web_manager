@@ -10,6 +10,7 @@ require 'redis'
 
 module RedisWebManager
   mattr_accessor :redis, default: ::Redis.new
+  mattr_accessor :redises, default: { default: redis }
   mattr_accessor :lifespan, default: 15.days
   mattr_accessor :authenticate, default: nil
 
@@ -22,8 +23,10 @@ module RedisWebManager
     private
 
     def check_attrs
-      unless redis.is_a?(::Redis)
-        raise ArgumentError, 'Invalid Redis instance, use like that Redis.new'
+      redises.each do |code, r|
+        unless r.is_a?(::Redis)
+          raise ArgumentError, "Invalid Redis instance for #{code}, use like that Redis.new"
+        end
       end
       unless lifespan.is_a?(::ActiveSupport::Duration)
         raise ArgumentError, 'Invalid lifespan, use like that 15.days, 15.minutes etc'

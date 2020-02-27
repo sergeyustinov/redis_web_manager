@@ -6,6 +6,18 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
+        <% if available_codes.size > 1 %>
+          <li class="nav-item dropdown mr-3">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <%= params[:code].capitalize %>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <%- available_codes.each do |code| %>
+                <a class="dropdown-item" href="<%= url_for code: code %>"><%= code.capitalize %></a>
+              <% end %>
+            </div>
+          </li>
+        <% end %>
         <li class="nav-item">
           <%= link_to 'Dashboard', root_path, title: 'Dashboard', class: 'nav-link' %>
         </li>
