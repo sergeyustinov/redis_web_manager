@@ -24,7 +24,7 @@ RedisWebManager::Engine.routes.draw do
     delete :flushall, to: 'actions#flushall'
 
     # Root
-    root 'dashboard#index'
+    root 'dashboard#index', as: :root_with_code
   end
 
   # Root

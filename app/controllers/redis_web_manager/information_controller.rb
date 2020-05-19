@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module RedisWebManager
-  class InformationController < ApplicationController
+  class InformationController < RedisWebManager::ApplicationController
     # GET /information
     def index
       @information = stats.map { |k, v| { name: k.to_s.humanize, value: v } }

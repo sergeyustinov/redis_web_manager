@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module RedisWebManager
   class ApplicationController < ActionController::Base
     protect_from_forgery with: :exception
@@ -8,7 +6,7 @@ module RedisWebManager
     before_action :check_code
     helper_method :available_codes
 
-    private
+    protected
 
     def authenticated?
       instance_exec(&authenticate)

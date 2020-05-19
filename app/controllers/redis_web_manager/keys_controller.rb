@@ -5,7 +5,7 @@ require 'pagy/extras/array'
 require 'pagy/extras/bootstrap'
 
 module RedisWebManager
-  class KeysController < ApplicationController
+  class KeysController < RedisWebManager::ApplicationController
     include ::Pagy::Backend
 
     # GET /keys

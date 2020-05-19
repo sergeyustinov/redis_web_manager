@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module RedisWebManager
-  class ConfigurationController < ApplicationController
+  class ConfigurationController < RedisWebManager::ApplicationController
     # GET /configuration
     def index
       @configurations = info.configuration

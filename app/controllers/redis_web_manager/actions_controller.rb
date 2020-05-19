@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module RedisWebManager
-  class ActionsController < ApplicationController
+  class ActionsController < RedisWebManager::ApplicationController
     # DELETE /reset
     def reset
       data.flush

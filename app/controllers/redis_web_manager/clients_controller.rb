@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module RedisWebManager
-  class ClientsController < ApplicationController
+  class ClientsController < RedisWebManager::ApplicationController
     # GET /clients
     def index
       @status = info.status
